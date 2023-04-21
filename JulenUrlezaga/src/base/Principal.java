@@ -86,8 +86,13 @@ public class Principal {
 			return false;
 		}
 	}
+	/**
+	 * 
+	 * @param nivel
+	 * @return true si nivel mayor a 50,false si nivel menor a 50
+	 */
 	
-	static boolean solicitarPermiso(int nivel) {
+	public static boolean solicitarPermiso(int nivel) {
 		if (nivel > 50) {
 			return true;
 		}else {
