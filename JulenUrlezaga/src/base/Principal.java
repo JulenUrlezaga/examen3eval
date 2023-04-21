@@ -1,6 +1,11 @@
 package base;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Principal {
@@ -20,8 +25,31 @@ public class Principal {
 		int nivel = leerNivelAgua();
 
 		mostrarMenu(nivel);
-
-	}
+		
+		Handler fileHandler  = null;
+		
+		try{
+  
+            fileHandler  = new FileHandler("./selecciones.log");
+             
+            LOGGER.addHandler(fileHandler);
+            
+            fileHandler.setLevel(Level.FINE);
+            LOGGER.setLevel(Level.FINE);
+             
+            LOGGER.config("Configuración hecha.");
+             
+   
+             
+            LOGGER.log(Level.FINE, "Nivel de log FINE");
+			
+        }catch(IOException exception){
+            LOGGER.log(Level.SEVERE, "Ocurrió un error en FileHandler.", exception);
+        }
+         
+        LOGGER.finer("Ejemplo con log FINE en LOGGER completado.");
+         
+    }
 
 	private static void mostrarMenu(int nivel) {
 		int opcion = 0;
