@@ -1,14 +1,16 @@
-package base;
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import base.Principal;
+
 class PrincipalTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testSolicitarPermiso() {
+		Principal Principal=new Principal();
 	}
 
 }
